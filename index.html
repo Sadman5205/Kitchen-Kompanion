@@ -903,6 +903,434 @@
       .nutrition-section.expanded .family-list {
         display: block;
       }
+
+      /* ── Nav tab active state ── */
+      .nav-tab {
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.15s ease;
+        color: var(--text-tertiary);
+        opacity: 0.6;
+      }
+      .nav-tab.active-tab {
+        opacity: 1;
+        color: var(--accent);
+      }
+      .nav-tab.active-tab span {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* ── Family Screen ── */
+      .family-screen {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 72px;
+        background: var(--bg-primary);
+        z-index: 10;
+        overflow-y: auto;
+        padding: 0 var(--space-lg) var(--space-lg);
+      }
+
+      .family-screen.family-screen-active {
+        display: flex;
+      }
+
+      .family-screen-back-bar {
+        position: sticky;
+        top: 0;
+        background: var(--bg-primary);
+        padding: var(--space-md) 0 var(--space-sm);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 5;
+        border-bottom: 1px solid var(--border-light);
+        margin-bottom: var(--space-md);
+      }
+
+      .family-screen-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--space-lg);
+      }
+
+      .family-screen-title {
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: -0.01em;
+      }
+
+      .add-member-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: var(--radius-full);
+        padding: 7px 14px;
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        font-family: var(--font-sans);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .family-screen-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      /* Family member card */
+      .fcard {
+        background: var(--card-bg);
+        border-radius: var(--radius-lg);
+        border: 2px solid var(--border-light);
+        box-shadow: var(--shadow-md);
+        padding: var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .fcard-top {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+      }
+
+      .fcard-avatar.adult-av {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-md);
+        background: var(--member-blue-bg);
+        color: var(--member-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--font-size-sm);
+        flex-shrink: 0;
+      }
+
+      .fcard-identity {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .fcard-name-row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .fcard-name {
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .fcard-role-badge.adult-badge {
+        background: var(--member-blue-bg);
+        color: var(--member-blue);
+        padding: 3px 9px;
+        border-radius: var(--radius-full);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .fcard-age {
+        font-size: var(--font-size-xs);
+        color: var(--text-tertiary);
+        font-weight: 500;
+      }
+
+      .fcard-edit-btn {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: 6px 9px;
+        font-size: 14px;
+        cursor: pointer;
+        color: var(--text-secondary);
+        line-height: 1;
+      }
+
+      .fcard-divider {
+        height: 1px;
+        background: var(--border-light);
+        margin: var(--space-xs) 0;
+      }
+
+      .fcard-section-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-tertiary);
+        margin-bottom: 4px;
+      }
+
+      .fcard-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+      }
+
+      .ftag {
+        padding: 4px 10px;
+        border-radius: var(--radius-full);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .ftag-danger {
+        background: var(--danger-light);
+        color: #991b1b;
+        border: 1px solid #fca5a5;
+      }
+
+      .ftag-warning {
+        background: var(--warning-light);
+        color: #92400e;
+        border: 1px solid #fcd34d;
+      }
+
+      .ftag-neutral {
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-light);
+      }
+
+      .ftag-info {
+        background: var(--accent-light);
+        color: #1e40af;
+        border: 1px solid #93c5fd;
+      }
+
+      .fcard-nutrition-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: var(--space-sm) var(--space-md);
+        margin-top: var(--space-xs);
+      }
+
+      .fcard-nutr-label {
+        font-size: var(--font-size-xs);
+        color: var(--text-tertiary);
+        font-weight: 500;
+      }
+
+      .fcard-nutr-value {
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      /* fcard avatar box (dynamic, replaces old static class) */
+      .fcard-avatar-box {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+
+      /* ── Modal overlay ── */
+      .modal-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 50;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .modal-overlay.modal-open {
+        display: flex;
+      }
+
+      .modal-sheet {
+        background: #fff;
+        border-radius: 24px 24px 0 0;
+        width: 100%;
+        max-height: 88%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 -8px 30px rgba(0,0,0,0.15);
+      }
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-md) var(--space-lg);
+        border-bottom: 1px solid var(--border-light);
+        flex-shrink: 0;
+      }
+
+      .modal-title {
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        color: var(--text-primary);
+      }
+
+      .modal-cancel-btn {
+        background: none;
+        border: none;
+        color: var(--text-tertiary);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        padding: 4px 0;
+      }
+
+      .modal-save-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: var(--radius-full);
+        padding: 6px 16px;
+        font-size: var(--font-size-sm);
+        font-weight: 700;
+        font-family: var(--font-sans);
+        cursor: pointer;
+      }
+
+      .modal-body {
+        overflow-y: auto;
+        padding: var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        padding-bottom: 32px;
+      }
+
+      .modal-section-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-tertiary);
+        margin-top: var(--space-md);
+        margin-bottom: 6px;
+      }
+
+      .modal-section-label:first-child {
+        margin-top: 0;
+      }
+
+      .modal-hint {
+        font-size: 10px;
+        text-transform: none;
+        font-weight: 500;
+        letter-spacing: 0;
+        color: var(--text-tertiary);
+        opacity: 0.8;
+      }
+
+      .modal-input {
+        width: 100%;
+        border: 1.5px solid var(--border-light);
+        border-radius: var(--radius-md);
+        padding: 10px 12px;
+        font-size: var(--font-size-sm);
+        font-family: var(--font-sans);
+        color: var(--text-primary);
+        background: var(--bg-primary);
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .modal-input:focus {
+        border-color: var(--accent);
+        background: #fff;
+      }
+
+      /* Avatar picker */
+      .avatar-picker {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+      }
+
+      .avatar-opt {
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius-md);
+        border: 2px solid var(--border-light);
+        background: var(--bg-primary);
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      .avatar-opt.selected {
+        border-color: var(--accent);
+        background: var(--accent-light);
+      }
+
+      /* Role picker */
+      .role-picker {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+      }
+
+      .role-opt {
+        padding: 7px 14px;
+        border-radius: var(--radius-full);
+        border: 1.5px solid var(--border-light);
+        background: var(--bg-primary);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        font-family: var(--font-sans);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s, color 0.15s;
+      }
+      .role-opt.selected {
+        border-color: var(--accent);
+        background: var(--accent-light);
+        color: var(--accent);
+      }
+
+      /* Delete button */
+      .modal-delete-btn {
+        margin-top: var(--space-lg);
+        width: 100%;
+        background: var(--danger-light);
+        color: #991b1b;
+        border: 1.5px solid #fca5a5;
+        border-radius: var(--radius-md);
+        padding: 11px;
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        font-family: var(--font-sans);
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -1286,22 +1714,100 @@
           </section>
         </section>
 
+        <!-- Family Screen -->
+        <section class="family-screen" id="familyScreen" aria-label="Family members">
+          <div class="family-screen-back-bar">
+            <button class="back-btn" type="button" onclick="switchTab('home')" aria-label="Go back to home">← Back</button>
+            <h2 class="family-screen-title">&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466; Your family</h2>
+            <button class="add-member-btn" type="button" aria-label="Add family member" onclick="openMemberModal(null)">
+              <span>&#xFF0B;</span> Add
+            </button>
+          </div>
+          <div class="family-screen-list" id="familyScreenList"></div>
+        </section>
+
+        <!-- Member Edit/Add Modal -->
+        <div class="modal-overlay" id="memberModal" aria-modal="true" role="dialog" aria-label="Edit family member">
+          <div class="modal-sheet">
+            <div class="modal-header">
+              <button class="modal-cancel-btn" type="button" onclick="closeMemberModal()">Cancel</button>
+              <h3 class="modal-title" id="modalTitle">Add member</h3>
+              <button class="modal-save-btn" type="button" onclick="saveMember()">Save</button>
+            </div>
+
+            <div class="modal-body">
+
+              <!-- Avatar picker -->
+              <div class="modal-section-label">Avatar</div>
+              <div class="avatar-picker" id="avatarPicker">
+                <button type="button" class="avatar-opt" data-emoji="&#x1F468;" onclick="selectAvatar(this)">&#x1F468;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F469;" onclick="selectAvatar(this)">&#x1F469;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F466;" onclick="selectAvatar(this)">&#x1F466;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F467;" onclick="selectAvatar(this)">&#x1F467;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F474;" onclick="selectAvatar(this)">&#x1F474;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F475;" onclick="selectAvatar(this)">&#x1F475;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F9D1;" onclick="selectAvatar(this)">&#x1F9D1;</button>
+                <button type="button" class="avatar-opt" data-emoji="&#x1F476;" onclick="selectAvatar(this)">&#x1F476;</button>
+              </div>
+
+              <!-- Name -->
+              <div class="modal-section-label">Name</div>
+              <input class="modal-input" type="text" id="inputName" placeholder="e.g. Sarah" maxlength="30" />
+
+              <!-- Age -->
+              <div class="modal-section-label">Age</div>
+              <input class="modal-input" type="number" id="inputAge" placeholder="e.g. 42" min="0" max="120" />
+
+              <!-- Role -->
+              <div class="modal-section-label">Role</div>
+              <div class="role-picker" id="rolePicker">
+                <button type="button" class="role-opt" data-role="Parent" onclick="selectRole(this)">Parent</button>
+                <button type="button" class="role-opt" data-role="Teen" onclick="selectRole(this)">Teen</button>
+                <button type="button" class="role-opt" data-role="Child" onclick="selectRole(this)">Child</button>
+                <button type="button" class="role-opt" data-role="Senior" onclick="selectRole(this)">Senior</button>
+              </div>
+
+              <!-- Calorie target -->
+              <div class="modal-section-label">Daily calorie target (kcal)</div>
+              <input class="modal-input" type="number" id="inputCalories" placeholder="e.g. 2000" min="500" max="5000" step="50" />
+
+              <!-- Health conditions -->
+              <div class="modal-section-label">Health conditions <span class="modal-hint">(comma-separated)</span></div>
+              <input class="modal-input" type="text" id="inputHealth" placeholder="e.g. High blood pressure, Diabetes" />
+
+              <!-- Allergies -->
+              <div class="modal-section-label">Allergies <span class="modal-hint">(comma-separated)</span></div>
+              <input class="modal-input" type="text" id="inputAllergies" placeholder="e.g. Peanuts, Shellfish" />
+
+              <!-- Dietary preferences -->
+              <div class="modal-section-label">Dietary preferences <span class="modal-hint">(comma-separated)</span></div>
+              <input class="modal-input" type="text" id="inputDiet" placeholder="e.g. Low sodium, High protein" />
+
+              <!-- Delete button (edit mode only) -->
+              <button class="modal-delete-btn" type="button" id="modalDeleteBtn" onclick="deleteMember()">
+                &#x1F5D1;&#xFE0F; Remove member
+              </button>
+
+            </div>
+          </div>
+        </div>
+
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
-          <div class="icon-rav">
-            <i class="icon-nav home">🏠</i>
+          <div class="icon-rav nav-tab active-tab" id="tab-home" onclick="switchTab('home')">
+            <i class="icon-nav home">&#x1F3E0;</i>
             <span>Home</span>
           </div>
-          <div class="icon-rav">
-            <i class="icon-nav home">📖</i>
+          <div class="icon-rav nav-tab" id="tab-recipes" onclick="switchTab('recipes')">
+            <i class="icon-nav home">&#x1F4D6;</i>
             <span>Recipes</span>
           </div>
-          <div class="icon-rav">
-            <i class="icon-nav home">📦</i>
+          <div class="icon-rav nav-tab" id="tab-inventory" onclick="switchTab('inventory')">
+            <i class="icon-nav home">&#x1F4E6;</i>
             <span>Inventory</span>
           </div>
-          <div class="icon-rav">
-            <i class="icon-nav home">👥</i>
+          <div class="icon-rav nav-tab" id="tab-family" onclick="switchTab('family')">
+            <i class="icon-nav home">&#x1F465;</i>
             <span>Family</span>
           </div>
         </nav>
@@ -1309,6 +1815,207 @@
     </div>
 
     <script>
+      // ── Data ─────────────────────────────────────────────────────
+      let familyMembers = [
+        {
+          id: 1, emoji: "👨", name: "David", age: 45, role: "Parent",
+          calories: 2000,
+          health: ["High blood pressure", "High cholesterol"],
+          allergies: [],
+          diet: ["Low sodium", "Low fat"]
+        },
+        {
+          id: 2, emoji: "👩", name: "Sarah", age: 42, role: "Parent",
+          calories: 1800,
+          health: [],
+          allergies: ["Shellfish", "Tree nuts"],
+          diet: []
+        },
+        {
+          id: 3, emoji: "👦", name: "Alex", age: 16, role: "Teen",
+          calories: 2400,
+          health: [],
+          allergies: ["Peanuts"],
+          diet: ["High protein", "More vegetables"]
+        },
+        {
+          id: 4, emoji: "👧", name: "Emma", age: 9, role: "Child",
+          calories: 1600,
+          health: ["Lactose intolerant"],
+          allergies: ["Dairy", "Eggs"],
+          diet: ["Prefers sweet foods"]
+        }
+      ];
+
+      let nextId = 5;
+      let editingId = null;
+
+      // Role → color config
+      const roleColors = {
+        Parent: { bg: "var(--member-blue-bg)", color: "var(--member-blue)" },
+        Teen:   { bg: "var(--member-purple-bg)", color: "var(--member-purple)" },
+        Child:  { bg: "var(--member-green-bg)", color: "var(--member-green)" },
+        Senior: { bg: "var(--member-orange-bg)", color: "var(--member-orange)" }
+      };
+
+      // ── Render family cards ───────────────────────────────────────
+      function renderFamily() {
+        const list = document.getElementById("familyScreenList");
+        list.innerHTML = "";
+
+        familyMembers.forEach(m => {
+          const colors = roleColors[m.role] || roleColors.Parent;
+          const card = document.createElement("div");
+          card.className = "fcard";
+          card.innerHTML = `
+            <div class="fcard-top">
+              <div class="fcard-avatar-box" style="background:${colors.bg};color:${colors.color};">${m.emoji}</div>
+              <div class="fcard-identity">
+                <div class="fcard-name-row">
+                  <span class="fcard-name">${m.name}</span>
+                  <span class="fcard-role-badge" style="background:${colors.bg};color:${colors.color};">${m.role}</span>
+                </div>
+                <span class="fcard-age">Age ${m.age}</span>
+              </div>
+              <button class="fcard-edit-btn" type="button" aria-label="Edit ${m.name}" onclick="openMemberModal(${m.id})">✏️</button>
+            </div>
+
+            <div class="fcard-divider"></div>
+
+            ${renderTagSection("Health conditions", m.health, "ftag-warning", "⚠️")}
+            ${renderTagSection("Allergies", m.allergies, "ftag-danger", "🚫")}
+            ${renderTagSection("Dietary preferences", m.diet, "ftag-info", "✅")}
+
+            <div class="fcard-nutrition-row">
+              <span class="fcard-nutr-label">Daily calorie target</span>
+              <span class="fcard-nutr-value">${m.calories.toLocaleString()} kcal</span>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      }
+
+      function renderTagSection(label, items, tagClass, icon) {
+        if (!items || items.length === 0) {
+          return `
+            <div class="fcard-section-label">${label}</div>
+            <div class="fcard-tags"><span class="ftag ftag-neutral">✅ None</span></div>
+          `;
+        }
+        const tags = items.map(i => `<span class="ftag ${tagClass}">${icon} ${i}</span>`).join("");
+        return `
+          <div class="fcard-section-label">${label}</div>
+          <div class="fcard-tags">${tags}</div>
+        `;
+      }
+
+      // ── Modal ─────────────────────────────────────────────────────
+      function openMemberModal(id) {
+        editingId = id;
+        const modal = document.getElementById("memberModal");
+        const deleteBtn = document.getElementById("modalDeleteBtn");
+        const title = document.getElementById("modalTitle");
+
+        // Reset
+        document.getElementById("inputName").value = "";
+        document.getElementById("inputAge").value = "";
+        document.getElementById("inputCalories").value = "";
+        document.getElementById("inputHealth").value = "";
+        document.getElementById("inputAllergies").value = "";
+        document.getElementById("inputDiet").value = "";
+        document.querySelectorAll(".avatar-opt").forEach(b => b.classList.remove("selected"));
+        document.querySelectorAll(".role-opt").forEach(b => b.classList.remove("selected"));
+
+        if (id !== null) {
+          // Edit mode
+          const m = familyMembers.find(x => x.id === id);
+          title.textContent = "Edit member";
+          deleteBtn.style.display = "block";
+          document.getElementById("inputName").value = m.name;
+          document.getElementById("inputAge").value = m.age;
+          document.getElementById("inputCalories").value = m.calories;
+          document.getElementById("inputHealth").value = m.health.join(", ");
+          document.getElementById("inputAllergies").value = m.allergies.join(", ");
+          document.getElementById("inputDiet").value = m.diet.join(", ");
+
+          // Select avatar
+          const avatarBtn = document.querySelector(`.avatar-opt[data-emoji="${m.emoji}"]`);
+          if (avatarBtn) avatarBtn.classList.add("selected");
+
+          // Select role
+          const roleBtn = document.querySelector(`.role-opt[data-role="${m.role}"]`);
+          if (roleBtn) roleBtn.classList.add("selected");
+        } else {
+          // Add mode
+          title.textContent = "Add member";
+          deleteBtn.style.display = "none";
+          // Default selections
+          document.querySelector(".avatar-opt").classList.add("selected");
+          document.querySelector(".role-opt").classList.add("selected");
+        }
+
+        modal.classList.add("modal-open");
+      }
+
+      function closeMemberModal() {
+        document.getElementById("memberModal").classList.remove("modal-open");
+        editingId = null;
+      }
+
+      function selectAvatar(btn) {
+        document.querySelectorAll(".avatar-opt").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+      }
+
+      function selectRole(btn) {
+        document.querySelectorAll(".role-opt").forEach(b => b.classList.remove("selected"));
+        btn.classList.add("selected");
+      }
+
+      function parseTags(str) {
+        return str.split(",").map(s => s.trim()).filter(Boolean);
+      }
+
+      function saveMember() {
+        const name = document.getElementById("inputName").value.trim();
+        const age = parseInt(document.getElementById("inputAge").value) || 0;
+        const calories = parseInt(document.getElementById("inputCalories").value) || 2000;
+        const health = parseTags(document.getElementById("inputHealth").value);
+        const allergies = parseTags(document.getElementById("inputAllergies").value);
+        const diet = parseTags(document.getElementById("inputDiet").value);
+
+        const selectedAvatar = document.querySelector(".avatar-opt.selected");
+        const emoji = selectedAvatar ? selectedAvatar.dataset.emoji : "🧑";
+
+        const selectedRole = document.querySelector(".role-opt.selected");
+        const role = selectedRole ? selectedRole.dataset.role : "Parent";
+
+        if (!name) {
+          document.getElementById("inputName").focus();
+          document.getElementById("inputName").style.borderColor = "var(--danger)";
+          return;
+        }
+        document.getElementById("inputName").style.borderColor = "";
+
+        if (editingId !== null) {
+          const idx = familyMembers.findIndex(x => x.id === editingId);
+          familyMembers[idx] = { id: editingId, emoji, name, age, role, calories, health, allergies, diet };
+        } else {
+          familyMembers.push({ id: nextId++, emoji, name, age, role, calories, health, allergies, diet });
+        }
+
+        renderFamily();
+        closeMemberModal();
+      }
+
+      function deleteMember() {
+        if (editingId === null) return;
+        familyMembers = familyMembers.filter(x => x.id !== editingId);
+        renderFamily();
+        closeMemberModal();
+      }
+
+      // ── Existing functions ────────────────────────────────────────
       function openCookingScreen() {
         document.getElementById("cookingScreen").classList.add("active");
       }
@@ -1322,21 +2029,41 @@
         const screen = document.querySelector(".screen");
         const toggleButton = document.getElementById("familyToggle");
         const isExpanded = nutritionSection.classList.toggle("show-all");
-
         screen.classList.toggle("screen-scroll-enabled", isExpanded);
         toggleButton.setAttribute("aria-expanded", String(isExpanded));
-
         if (isExpanded) {
-          setTimeout(() => {
-            toggleButton.scrollIntoView({
-              block: "nearest",
-              behavior: "smooth",
-            });
-          }, 50);
+          setTimeout(() => { toggleButton.scrollIntoView({ block: "nearest", behavior: "smooth" }); }, 50);
         } else {
           screen.scrollTo({ top: 0, behavior: "smooth" });
         }
       }
+
+      function switchTab(tab) {
+        const mainContent = document.getElementById("mainContent");
+        const familyScreen = document.getElementById("familyScreen");
+        const cookingScreen = document.getElementById("cookingScreen");
+        cookingScreen.classList.remove("active");
+        if (tab === "family") {
+          mainContent.style.display = "none";
+          familyScreen.classList.add("family-screen-active");
+          document.querySelector(".screen").classList.add("screen-scroll-enabled");
+        } else {
+          mainContent.style.display = "";
+          familyScreen.classList.remove("family-screen-active");
+          document.querySelector(".screen").classList.remove("screen-scroll-enabled");
+        }
+        document.querySelectorAll(".nav-tab").forEach(t => t.classList.remove("active-tab"));
+        const activeTab = document.getElementById("tab-" + tab);
+        if (activeTab) activeTab.classList.add("active-tab");
+      }
+
+      // Close modal on overlay click
+      document.getElementById("memberModal").addEventListener("click", function(e) {
+        if (e.target === this) closeMemberModal();
+      });
+
+      // Initial render
+      renderFamily();
     </script>
   </body>
 </html>
